@@ -153,8 +153,10 @@ nav.scrolled{background:rgba(0,0,0,0.88);backdrop-filter:blur(24px);border-botto
 .work-section-label{font-family:var(--f-mono);font-size:0.68rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent-light);}
 .work-sub-title{font-family:var(--f-display);font-size:clamp(2rem,4vw,3rem);font-weight:700;letter-spacing:-0.02em;line-height:1;color:var(--text-1);}
 .work-sub-title em{color:transparent;-webkit-text-stroke:1px rgba(0,210,214,0.4);font-style:normal;}
-.work-counter{font-family:var(--f-mono);font-size:0.85rem;color:var(--text-3);letter-spacing:0.05em;align-self:flex-end;}
+.work-counter{font-family:var(--f-mono);font-size:0.85rem;color:var(--text-3);letter-spacing:0.05em;}
 .work-counter span{color:var(--accent-light);}
+
+
 
 .work-track-wrap{overflow:hidden;position:relative;}
 .work-track-wrap::after{content:'';position:absolute;top:0;right:0;width:120px;height:100%;background:linear-gradient(to left,#000,transparent);pointer-events:none;z-index:2;}
@@ -174,6 +176,14 @@ nav.scrolled{background:rgba(0,0,0,0.88);backdrop-filter:blur(24px);border-botto
 .work-sub-divider{height:1px;background:linear-gradient(90deg,rgba(0,114,115,0.3),transparent);margin:0 48px 80px;}
 
 .work-mobile-hint{display:none;text-align:center;margin-top:12px;color:var(--text-3);font-family:var(--f-mono);font-size:0.68rem;letter-spacing:0.12em;}
+/* ── WORK SCROLL ARROWS ── */
+.work-arrows{display:flex;gap:12px;margin-top:24px;padding-left:48px;}
+.work-arrow{width:48px;height:48px;border-radius:50%;border:1px solid rgba(0,114,115,0.3);background:rgba(0,114,115,0.06);color:var(--accent-light);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all 0.3s cubic-bezier(0.16,1,0.3,1);padding:0;flex-shrink:0;}
+.work-arrow:hover{border-color:rgba(0,210,214,0.6);background:rgba(0,114,115,0.18);box-shadow:0 0 20px rgba(0,114,115,0.25);transform:scale(1.08);}
+.work-arrow:active{transform:scale(0.94);}
+.work-arrow svg{pointer-events:none;}
+@media(max-width:768px){.work-arrows{display:none;}}
+
 
 .work-track.websites .work-card{width:min(60vw,700px);height:60vh;}
 
@@ -277,28 +287,19 @@ footer{border-top:1px solid rgba(0,114,115,0.12);background:var(--surface);}
 }
 
 @media(max-width:768px){
-  /* layout */
   .section,.about-section,.work-section{padding:80px 0 40px;}
   .work-sub-section{padding:0 0 60px;}
   .work-sub-section:last-child{padding-bottom:80px;}
   .container{padding:0 20px;}
-
-  /* nav */
   .nav-links,.nav-cta{display:none;}
   nav{padding:0 20px;}
   #cur,#cur2{display:none;}
   body{cursor:auto;}
-
-  /* hero */
   .hero-wordmark-nexus{font-size:clamp(52px,17vw,110px);}
   .hero-wordmark-visual{font-size:clamp(26px,9vw,58px);}
   .hero-ctas{flex-direction:column;align-items:center;gap:12px;}
   .btn-p,.btn-g{width:100%;max-width:280px;text-align:center;padding:14px 28px;}
-
-  /* services */
   .svc-grid{grid-template-columns:1fr;}
-
-  /* work */
   .work-section-header{flex-direction:column;align-items:flex-start;gap:12px;}
   .work-track{overflow-x:auto;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;padding:0 20px 16px;}
   .work-track-wrap::after{display:none;}
@@ -306,7 +307,6 @@ footer{border-top:1px solid rgba(0,114,115,0.12);background:var(--surface);}
   .work-mobile-hint{display:block;}
   .work-sub-divider{margin:0 20px 60px;}
 
-  /* about — stack to single column */
   .about-section{padding:80px 0;}
   .about-headline{font-size:clamp(2rem,8vw,3rem);margin-bottom:28px;}
   .about-lead{font-size:1rem;}
@@ -316,14 +316,10 @@ footer{border-top:1px solid rgba(0,114,115,0.12);background:var(--surface);}
   .about-services-list{margin-top:50px;padding-top:28px;}
   .services-pills{gap:8px;}
   .services-pill{font-size:0.68rem;padding:7px 14px;}
-
-  /* contact */
   .contact-grid{grid-template-columns:1fr;gap:40px;padding-top:60px;}
   .contact-logo-panel{padding:40px 24px;}
   .contact-logo-panel .your-logo-img{max-width:220px;}
   .info-chip{padding:14px 16px;}
-
-  /* footer */
   .footer-main{grid-template-columns:1fr;gap:40px;}
   .footer-link-groups{justify-content:flex-start;flex-wrap:wrap;gap:40px;}
   .footer-bottom{flex-direction:column;gap:12px;text-align:center;}
@@ -496,6 +492,7 @@ footer{border-top:1px solid rgba(0,114,115,0.12);background:var(--surface);}
 <!-- ── OUR WORKS ── -->
 <section class="work-section section-wrap" id="work">
 
+  <!-- GRAPHICS SUB-SECTION -->
   <div class="work-sub-section">
     <div class="container work-section-header" data-anim>
       <div>
@@ -512,7 +509,7 @@ footer{border-top:1px solid rgba(0,114,115,0.12);background:var(--surface);}
           <div class="work-overlay"></div>
           <div class="work-info">
             <span class="work-tag">Brand Identity</span>
-            <h3 class="work-title"> Project 1</h3>
+            <h3 class="work-title">Project 1</h3>
             <span class="work-meta">2026 — Branding</span>
           </div>
         </div>
@@ -532,7 +529,7 @@ footer{border-top:1px solid rgba(0,114,115,0.12);background:var(--surface);}
           <div class="work-overlay"></div>
           <div class="work-info">
             <span class="work-tag">Brand Identity</span>
-            <h3 class="work-title"> Project  3</h3>
+            <h3 class="work-title">Project 3</h3>
             <span class="work-meta">2025 — Branding</span>
           </div>
         </div>
@@ -559,11 +556,20 @@ footer{border-top:1px solid rgba(0,114,115,0.12);background:var(--surface);}
 
       </div>
     </div>
+    <div class="work-arrows">
+      <button class="work-arrow" onclick="moveTrack('gfxTrack',-1)" aria-label="Previous">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <button class="work-arrow" onclick="moveTrack('gfxTrack',1)" aria-label="Next">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+    </div>
     <div class="work-mobile-hint">← Swipe to explore →</div>
   </div>
 
   <div class="work-sub-divider"></div>
 
+  <!-- WEBSITES SUB-SECTION -->
   <div class="work-sub-section">
     <div class="container work-section-header" data-anim>
       <div>
@@ -596,6 +602,14 @@ footer{border-top:1px solid rgba(0,114,115,0.12);background:var(--surface);}
         </div>
 
       </div>
+    </div>
+    <div class="work-arrows">
+      <button class="work-arrow" onclick="moveTrack('webTrack',-1)" aria-label="Previous">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <button class="work-arrow" onclick="moveTrack('webTrack',1)" aria-label="Next">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
     </div>
     <div class="work-mobile-hint">← Swipe to explore →</div>
   </div>
@@ -726,12 +740,12 @@ footer{border-top:1px solid rgba(0,114,115,0.12);background:var(--surface);}
         </div>
       </div>
 
-      <!-- LOGO PANEL — no background, transparent -->
+      <!-- LOGO PANEL -->
       <div class="contact-logo-panel" data-anim="right">
         <div class="your-logo-container">
           <img src="NEXUS-02.png" alt="Nexus Visual Logo" class="your-logo-img">
         </div>
-       
+      </div>
 
     </div>
   </div>
@@ -798,9 +812,102 @@ footer{border-top:1px solid rgba(0,114,115,0.12);background:var(--surface);}
   </div>
 </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js">
+
+/* ── Track scroll arrows ── */
+function moveTrack(trackId, dir){
+  const track = document.getElementById(trackId);
+  if(!track) return;
+  const isDesktop = window.innerWidth > 900 && hasGSAP;
+  if(isDesktop){
+    const sub = track.closest('.work-sub-section');
+    const st = ScrollTrigger.getAll().find(s => s.pin && s.trigger === sub);
+    if(st){
+      const cards = track.querySelectorAll('.work-card');
+      const cardW = cards[0].offsetWidth + 28;
+      const totalDist = track.scrollWidth - window.innerWidth + 96;
+      const currentProgress = st.progress;
+      const currentX = currentProgress * totalDist;
+      const targetX = Math.max(0, Math.min(totalDist, currentX + dir * cardW));
+      const targetProgress = targetX / totalDist;
+      const targetScroll = st.start + (st.end - st.start) * targetProgress;
+      lenis
+        ? lenis.scrollTo(targetScroll, {duration:0.8, easing:t=>1-Math.pow(1-t,3)})
+        : window.scrollTo({top:targetScroll, behavior:'smooth'});
+      return;
+    }
+  }
+  // mobile fallback
+  const cards = track.querySelectorAll('.work-card');
+  const cardW = cards[0].offsetWidth + 28;
+  track.scrollBy({left: dir * cardW, behavior:'smooth'});
+}
+
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js">
+
+/* ── Track scroll arrows ── */
+function moveTrack(trackId, dir){
+  const track = document.getElementById(trackId);
+  if(!track) return;
+  const isDesktop = window.innerWidth > 900 && hasGSAP;
+  if(isDesktop){
+    const sub = track.closest('.work-sub-section');
+    const st = ScrollTrigger.getAll().find(s => s.pin && s.trigger === sub);
+    if(st){
+      const cards = track.querySelectorAll('.work-card');
+      const cardW = cards[0].offsetWidth + 28;
+      const totalDist = track.scrollWidth - window.innerWidth + 96;
+      const currentProgress = st.progress;
+      const currentX = currentProgress * totalDist;
+      const targetX = Math.max(0, Math.min(totalDist, currentX + dir * cardW));
+      const targetProgress = targetX / totalDist;
+      const targetScroll = st.start + (st.end - st.start) * targetProgress;
+      lenis
+        ? lenis.scrollTo(targetScroll, {duration:0.8, easing:t=>1-Math.pow(1-t,3)})
+        : window.scrollTo({top:targetScroll, behavior:'smooth'});
+      return;
+    }
+  }
+  // mobile fallback
+  const cards = track.querySelectorAll('.work-card');
+  const cardW = cards[0].offsetWidth + 28;
+  track.scrollBy({left: dir * cardW, behavior:'smooth'});
+}
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js">
+
+/* ── Track scroll arrows ── */
+function moveTrack(trackId, dir){
+  const track = document.getElementById(trackId);
+  if(!track) return;
+  const isDesktop = window.innerWidth > 900 && hasGSAP;
+  if(isDesktop){
+    const sub = track.closest('.work-sub-section');
+    const st = ScrollTrigger.getAll().find(s => s.pin && s.trigger === sub);
+    if(st){
+      const cards = track.querySelectorAll('.work-card');
+      const cardW = cards[0].offsetWidth + 28;
+      const totalDist = track.scrollWidth - window.innerWidth + 96;
+      const currentProgress = st.progress;
+      const currentX = currentProgress * totalDist;
+      const targetX = Math.max(0, Math.min(totalDist, currentX + dir * cardW));
+      const targetProgress = targetX / totalDist;
+      const targetScroll = st.start + (st.end - st.start) * targetProgress;
+      lenis
+        ? lenis.scrollTo(targetScroll, {duration:0.8, easing:t=>1-Math.pow(1-t,3)})
+        : window.scrollTo({top:targetScroll, behavior:'smooth'});
+      return;
+    }
+  }
+  // mobile fallback
+  const cards = track.querySelectorAll('.work-card');
+  const cardW = cards[0].offsetWidth + 28;
+  track.scrollBy({left: dir * cardW, behavior:'smooth'});
+}
+
+</script>
 <script>
 const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const isCoarse=window.matchMedia('(pointer: coarse)').matches;
@@ -891,7 +998,11 @@ if(hasGSAP&&!reduceMotion){
         start:'top top',
         end:()=>'+='+gfxDist(),
         scrub:true,pin:true,invalidateOnRefresh:true,
-        onUpdate:s=>{gfxCur.textContent=String(Math.min(gfxCards.length-1,Math.floor(s.progress*gfxCards.length))+1).padStart(2,'0');}
+        onUpdate:s=>{
+          const idx=Math.min(gfxCards.length-1,Math.floor(s.progress*gfxCards.length));
+          gfxCur.textContent=String(idx+1).padStart(2,'0');
+
+        }
       }});
     }});
   }
@@ -908,7 +1019,11 @@ if(hasGSAP&&!reduceMotion){
         start:'top top',
         end:()=>'+='+webDist(),
         scrub:true,pin:true,invalidateOnRefresh:true,
-        onUpdate:s=>{webCur.textContent=String(Math.min(webCards.length-1,Math.floor(s.progress*webCards.length))+1).padStart(2,'0');}
+        onUpdate:s=>{
+          const idx=Math.min(webCards.length-1,Math.floor(s.progress*webCards.length));
+          webCur.textContent=String(idx+1).padStart(2,'0');
+
+        }
       }});
     }});
   }
@@ -938,6 +1053,38 @@ if(!reduceMotion){
   io('[data-label]',0.4,'0px 0px -10px 0px');
   io('.draw-line',0.5,'0px');
 }
+
+
+
+/* ── Track scroll arrows ── */
+function moveTrack(trackId, dir){
+  const track = document.getElementById(trackId);
+  if(!track) return;
+  const isDesktop = window.innerWidth > 900 && hasGSAP;
+  if(isDesktop){
+    const sub = track.closest('.work-sub-section');
+    const st = ScrollTrigger.getAll().find(s => s.pin && s.trigger === sub);
+    if(st){
+      const cards = track.querySelectorAll('.work-card');
+      const cardW = cards[0].offsetWidth + 28;
+      const totalDist = track.scrollWidth - window.innerWidth + 96;
+      const currentProgress = st.progress;
+      const currentX = currentProgress * totalDist;
+      const targetX = Math.max(0, Math.min(totalDist, currentX + dir * cardW));
+      const targetProgress = targetX / totalDist;
+      const targetScroll = st.start + (st.end - st.start) * targetProgress;
+      lenis
+        ? lenis.scrollTo(targetScroll, {duration:0.8, easing:t=>1-Math.pow(1-t,3)})
+        : window.scrollTo({top:targetScroll, behavior:'smooth'});
+      return;
+    }
+  }
+  // mobile fallback
+  const cards = track.querySelectorAll('.work-card');
+  const cardW = cards[0].offsetWidth + 28;
+  track.scrollBy({left: dir * cardW, behavior:'smooth'});
+}
+
 </script>
 </body>
 </html>
